@@ -103,11 +103,22 @@ figure{
         width: 100%;
         height: auto;
     }
+    figure::after{
+        content:'';
+        right: 0;
+        top: -9%;
+        height:100% ;
+        width:50% ;
+        background-color:${({ theme }) => theme.colors.first};
+    }
 }
 
 @media (max-width: ${({ theme }) => theme.media.mobile}){
     .grid{
         gap:10rem;
+    }
+    section{
+      padding:7rem 0;
     }
 
     figure::after{
@@ -117,6 +128,11 @@ figure{
         height:100% ;
         width:50% ;
         background-color:${({ theme }) => theme.colors.first};
+    }
+}
+@media (max-width: ${({ theme }) => theme.media.tab}){
+    section{
+      padding:7rem 0;
     }
 }
 `;

@@ -1,5 +1,7 @@
 const express = require("express");
+
 const router = express.Router();
+
 const bcrypt = require("bcryptjs");
 require("../db/conn");
 
@@ -8,7 +10,12 @@ const User = require("../models/user");
 router.get("/", (req, res) => {
   // Redirect to the "/home" route
   // res.redirect("/Home");
-  res.send("hiiii ");
+  res.send("hiiii this is server router ");
+});
+router.get("/login", (req, res) => {
+  // Redirect to the "/home" route
+  // res.redirect("/Home");
+  res.send("hiiii this is login server router ");
 });
 
 // using promises 👇🏻
@@ -79,21 +86,36 @@ router.post("/login", async (req, res) => {
     if (!email || !password) {
       return res.status(400).json({ error: "Please enter your credentials" });
     }
+
     const userLogin = await User.findOne({ email: email });
-    if (!userLogin) {
+    if (userLogin) {
       const isMatch = await bcrypt.compare(password, userLogin.password);
 
+      token = await userLogin.generateAuthToken();
+      console.log(token);
+
+      res.cookie("jwtoken", token, {
+        expires: new Date(Date.now() + 25892000000),
+        httpOnly: true,
+      });
+
       if (!isMatch) {
-        res.status(400).json({ error: "invalid credentials pass" });
+        return res.status(400).json({ error: "password not matching" });
       } else {
-        res.json({ msg: "user login successfully" });
+        res.json({ msg: "User login successful" });
+        res.render("/");
       }
-    } else {
-      res.status(400).json({ error: "invalid credentials" });
     }
+
+    // At this point, login is successful
+    // You can customize the response based on your application's needs
+    // For example, you can send a JWT token for authentication
   } catch (error) {
     console.log(error);
+    res.status(400).json({ error: "Internal server error" });
   }
 });
+
+// ...
 
 module.exports = router;

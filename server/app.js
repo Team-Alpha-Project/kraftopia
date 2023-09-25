@@ -8,12 +8,22 @@ app.use(express.json());
 app.use(require("./router/auth"));
 const PORT = process.env.PORT;
 
-const Home = require("./Home");
+
 
 const middleware = (req, res, next) => {
   console.log("hiiiiii im a middleeaware");
   next();
 };
+
+
+
+// const corsOptions = {
+//   origin: "http://localhost:3000", // Replace with your frontend's origin
+//   credentials: true, // Enable passing cookies and headers with credentials
+// };
+
+// app.use(cors(corsOptions));
+
 // app.get("/", (req, res) => {
 //   res.send("hello world SERVER app.js");
 // });

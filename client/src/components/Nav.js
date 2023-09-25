@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import { FiShoppingCart } from "react-icons/fi";
 import { CgMenu, CgClose } from "react-icons/cg";
 import { useCartContext } from "../context/cart_context";
+import DropdownMenu from "./DropdownMenu ";
 // import { useAuth0 } from "@auth0/auth0-react";
 // import { Button } from "../styles/Button";
 
@@ -243,14 +244,9 @@ const Nav = () => {
               Blog
             </NavLink>
           </li>
+          
           <li>
-            <NavLink
-              to="/login"
-              className="navbar-link "
-              onClick={() => setMenuIcon(false)}
-            >
-              Login
-            </NavLink>
+            <DropdownMenu  />
           </li>
           {/* <li className="">
             <NavLink className="navbar-link">

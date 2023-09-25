@@ -8,7 +8,8 @@ import SingleProduct from "./SingleProduct";
 // import SingleDistrict from "./SingleDistrict";
 import Blog from "./Blog";
 import Cart from "./Cart";
-import Login from "./Login";
+import Login from "./components/Login";
+
 import Register from "./Register";
 import Error from "./Error";
 import Header from "./components/Header";
@@ -69,8 +70,8 @@ const App = () => {
     },
 
     media: {
-      mobile: "790px",
-      // mobile: "390px",
+      // mobile: "790px",
+      mobile: "390px",
       tab: "998px",
     },
   };
