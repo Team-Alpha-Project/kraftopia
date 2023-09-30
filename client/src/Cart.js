@@ -86,7 +86,7 @@ const EmptyDiv = styled.div`
 
   display: grid;
   place-items: center;
-  height: 50vh;
+  // height: 50vh;
 
   h3 {
     font-size: 4.2rem;
@@ -176,7 +176,7 @@ const Wrapper = styled.section`
     justify-content: space-between;
 
     .btn-clear {
-      background-color: #e74c3c;
+      background-color: ${({ theme }) => theme.colors.first};
     }
   }
 
@@ -195,13 +195,13 @@ const Wrapper = styled.section`
 
     .amount-style {
       font-size: 2.4rem;
-      color: ${({ theme }) => theme.colors.btn};
+      color: ${({ theme }) => theme.colors.black};
     }
   }
 
   .remove_icon {
     font-size: 1.6rem;
-    color: #e74c3c;
+    color: ${({ theme }) => theme.colors.black};
     cursor: pointer;
   }
 

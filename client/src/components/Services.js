@@ -105,6 +105,8 @@ const Wrapper = styled.section`
   }
 
   @media (max-width: ${({ theme }) => theme.media.mobile}) {
+    height:auto;
+    
     .services {
       display: grid;
       // gap: 5rem;

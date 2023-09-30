@@ -10,7 +10,7 @@ const FeatureProduct = () => {
   }
 
   return (
-    <Wrapper >
+    <Wrapper>
       <div className="container">
         <div className="intro-data">Check Now!</div>
         <div className="common-heading">Our Feature Services</div>
@@ -25,7 +25,7 @@ const FeatureProduct = () => {
 };
 
 const Wrapper = styled.section`
-  height: 100vh;
+  // height: auto;
   background-color: ${({ theme }) => theme.colors.bg};
 
   .container {
@@ -120,6 +120,11 @@ const Wrapper = styled.section`
         color: rgb(98 84 243);
         font-size: 1.4rem;
       }
+    }
+  }
+  @media (max-width: ${({ theme }) => theme.media.mobile}) {
+    section {
+      height: auto;
     }
   }
 `;

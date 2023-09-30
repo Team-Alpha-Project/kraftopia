@@ -106,7 +106,7 @@ const Wrapper = styled.div`
 
     .amount-style {
       font-size: 2.4rem;
-      color: ${({ theme }) => theme.colors.btn};
+      color: ${({ theme }) => theme.colors.black};
     }
   }
 `;

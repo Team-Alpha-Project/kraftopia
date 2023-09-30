@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { CgProfile } from "react-icons/cg"; 
+import { CgProfile } from "react-icons/cg"; // Import AiFillAlert icon
 
-
-const DropdownMenu = () => {
+const DropdownMobileMenu = () => {
   const [menuVisible, setMenuVisible] = useState(false);
 
   const toggleMenu = () => {
@@ -19,13 +18,11 @@ const DropdownMenu = () => {
       {menuVisible && (
         <DropdownList>
           <DropdownItem>
-            <p to="#" onClick={toggleMenu}>
-              welcome email
-            </p>
+            <NavLink onClick={toggleMenu}>welcome"email"!</NavLink>
           </DropdownItem>
           <DropdownItem>
             <NavLink to="/profile" onClick={toggleMenu}>
-              Profile
+              profile
             </NavLink>
           </DropdownItem>
           <DropdownItem>
@@ -34,7 +31,7 @@ const DropdownMenu = () => {
             </NavLink>
           </DropdownItem>
           <DropdownItem>
-            <NavLink to="/seller" onClick={toggleMenu}>
+            <NavLink to="#" onClick={toggleMenu}>
               seller
             </NavLink>
           </DropdownItem>
@@ -50,10 +47,13 @@ const DropdownMenu = () => {
 };
 
 const DropdownContainer = styled.div`
-  position: relative;
-  display: inline-block;
+  position: absolute;
+  right: 9rem;
+  display: none;
+  // display: inline-block;
+
   @media (max-width: ${({ theme }) => theme.media.mobile}) {
-    display: none;
+    display: inline-block;
   }
 `;
 
@@ -66,27 +66,22 @@ const DropdownToggle = styled.div`
 
 // Use AiFillAlert icon
 const Icon = styled(CgProfile)`
-  font-size: 2.5rem;
+  font-size: 3rem;
 `;
 
 const DropdownList = styled.ul`
   position: absolute;
-  // top: -100%;
-  top: 195%;
-
-  width: max-content;
-  right: -42px;
+  top: 4rem;
+  right: -5rem;
   background-color: ${({ theme }) => theme.colors.container};
   list-style: none;
   padding: 0;
   margin: 0;
-  // transition: background-color 0.3s, box-shadow 0.3s;
-  transition: top 0.3s linear;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
 
   @media (max-width: ${({ theme }) => theme.media.mobile}) {
-    position: relative;
-    background-color: ${({ theme }) => theme.colors.container};
+    position: absolute;
+    background-color: ${({ theme }) => theme.colors.white};
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
     margin-top: 1rem;
   }
@@ -99,11 +94,7 @@ const DropdownItem = styled.li`
   &:last-child {
     border-bottom: none;
   }
-  p {
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    color: black;
-  }
+
   a {
     text-decoration: none;
     color: ${({ theme }) => theme.colors.black};
@@ -118,4 +109,4 @@ const DropdownItem = styled.li`
   }
 `;
 
-export default DropdownMenu;
+export default DropdownMobileMenu;

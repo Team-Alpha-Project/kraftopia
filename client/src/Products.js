@@ -30,7 +30,7 @@ const Products = () => {
 
 const Wrapper = styled.section`
   padding: 9rem 0;
-  height: auto;
+  // height: auto;
   .grid-filter-column {
     grid-template-columns: 0.2fr 1fr;
     gap: 3rem;

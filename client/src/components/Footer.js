@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import {
   AiOutlineInstagram,
@@ -10,6 +10,8 @@ import styled from "styled-components";
 import { Button } from "../styles/Button";
 
 const Footer = () => {
+  const [menuIcon, setMenuIcon] = useState();
+
   return (
     <Wrapper className="footer-container">
       <div className="footer-container">
@@ -30,39 +32,66 @@ const Footer = () => {
             <Button>Subscribe</Button>
           </div>
 
-          <div className="navbar-lists">
-            {/* <h2 className="title">navigate</h2> */}
-            <ul>
+          <div className={menuIcon ? "navbar active" : "navbar"}>
+            <ul className="navbar-lists">
               <li>
-                <NavLink to="/" className="navbar-link home-link">
-                  {" "}
-                  Home{" "}
+                <NavLink
+                  to="/"
+                  className="navbar-link home-link "
+                  activeclassname="active"
+                  onClick={() => setMenuIcon(false)}
+                >
+                  Home
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/about" className="navbar-link">
-                  {" "}
-                  About{" "}
+                <NavLink
+                  to="/about"
+                  className="navbar-link"
+                  activeclassname="active"
+                  onClick={() => setMenuIcon(false)}
+                >
+                  About
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/contact" className="navbar-link">
-                  {" "}
-                  Contact{" "}
+                <NavLink
+                  to="/contact"
+                  className="navbar-link "
+                  activeclassname="active"
+                  onClick={() => setMenuIcon(false)}
+                >
+                  Contact
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/products" className="navbar-link">
-                  {" "}
-                  Products{" "}
+                <NavLink
+                  to="/products"
+                  className="navbar-link "
+                  activeclassname="active"
+                  onClick={() => setMenuIcon(false)}
+                >
+                  Products
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/blog" className="navbar-link">
-                  {" "}
-                  Blog{" "}
+                <NavLink
+                  to="/blog"
+                  className="navbar-link "
+                  activeclassname="active"
+                  onClick={() => setMenuIcon(false)}
+                >
+                  Blog
                 </NavLink>
               </li>
+
+              {/* <li>
+                  <NavLink to="/districts" className="navbar-link">Districts</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/categories" className="navbar-link">Categories</NavLink>
+                </li>
+                 */}
             </ul>
           </div>
 
@@ -123,8 +152,9 @@ const Wrapper = styled.footer`
     width: 100%;
     border: 1px solid black;
   }
+
   .footer {
-    margin-top: 1rem;
+    // margin-top: 1rem;
     align-items: center;
     color: ${({ theme }) => theme.colors.black};
     padding: 20px 0;
@@ -175,10 +205,12 @@ const Wrapper = styled.footer`
     text-decoration: none;
     font-size: 2.5rem;
     font-weight: 500;
-    color: ${({ theme }) => theme.colors.black};
+    // color: ${({ theme }) => theme.colors.black};
     transition: color 0.4s linear;
   }
-
+  .active {
+    color: ${({ theme }) => theme.colors.first};
+  }
   .navbar-link:hover,
   .navbar-link:active {
     cursor: pointer;

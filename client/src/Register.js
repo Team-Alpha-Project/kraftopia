@@ -287,7 +287,7 @@ const Register = () => {
 };
 const Wrapper = styled.section`
   padding: 9rem 3rem;
-  height: 100vh;
+  // height: 100vh;
 
   .register {
     width: 100%;

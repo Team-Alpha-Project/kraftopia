@@ -5,15 +5,21 @@ import About from "./About";
 import Products from "./Products";
 import Contact from "./Contact";
 import SingleProduct from "./SingleProduct";
-// import SingleDistrict from "./SingleDistrict";
+import SingleDistrict from "./SingleDistrict";
 import Blog from "./Blog";
 import Cart from "./Cart";
-import Login from "./components/Login";
-
-import Register from "./Register";
+// import Login from "./components/Login";
+// import Register from "./Register";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Dashboard from "./pages/Dashboard";
+import Otp from "./pages/Otp";
 import Error from "./Error";
+import Profile from "./components/Profile";
+import Wishlist from "./components/Wishlist";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import "react-toastify/dist/ReactToastify.css";
 import { GlobalStyle } from "./GlobalStyle";
 import { ThemeProvider } from "styled-components";
 
@@ -83,12 +89,21 @@ const App = () => {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/register" element={<Register />} />
+          {/* <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} /> */}
+
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/otp" element={<Otp />} />
+
           <Route path="/about" element={<About />} />
           <Route path="/products" element={<Products />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/singleproduct/:id" element={<SingleProduct />} />
+          <Route path="/singledistrict" element={<SingleDistrict />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="*" element={<Error />} />

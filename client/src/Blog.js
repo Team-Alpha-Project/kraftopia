@@ -146,7 +146,7 @@ const Blog = () => {
 };
 const Wrapper = styled.section`
   padding: 7rem 0;
-  height: auto;
+  // height: auto;
 
   .blog_title {
     background-color: ${({ theme }) => theme.colors.white};

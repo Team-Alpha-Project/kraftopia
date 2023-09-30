@@ -5,8 +5,6 @@ import { FiShoppingCart } from "react-icons/fi";
 import { CgMenu, CgClose } from "react-icons/cg";
 import { useCartContext } from "../context/cart_context";
 import DropdownMenu from "./DropdownMenu ";
-// import { useAuth0 } from "@auth0/auth0-react";
-// import { Button } from "../styles/Button";
 
 const Nav = () => {
   const [menuIcon, setMenuIcon] = useState();
@@ -17,10 +15,9 @@ const Nav = () => {
   // const toggleMenu = () => {
   //   setMenuVisible(!isMenuVisible);
   // };
-  // const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
 
   const Nav = styled.nav`
-    height: 100%;
+    // height: 100%;
     display: flex;
     align-items: center;
 
@@ -29,11 +26,14 @@ const Nav = () => {
       display: flex;
       margin-right: 3rem;
     }
-
+    .profile_icon {
+      color: Red;
+    }
     .login {
       height: 100%;
       background-color: black;
     }
+
     .navbar-lists {
       display: flex;
       gap: 2rem;
@@ -48,7 +48,7 @@ const Nav = () => {
           font-size: 1.8rem;
           font-weight: 500;
           text-transform: uppercase;
-          color: ${({ theme }) => theme.colors.black};
+
           transition: color 0.3s linear;
         }
 
@@ -100,6 +100,7 @@ const Nav = () => {
     .profile-icon {
       font-size: 2.5rem;
       cursor: pointer;
+      display: none;
     }
     .user-login--name {
       text-transform: capitalize;
@@ -110,7 +111,9 @@ const Nav = () => {
       font-size: 1.4rem;
       padding: 0.8rem 1.4rem;
     }
-
+    .proIcon {
+      display: none;
+    }
     @media (max-width: ${({ theme }) => theme.media.mobile}) {
       .mobile-navbar-btn {
         display: inline-block;
@@ -121,6 +124,9 @@ const Nav = () => {
           font-size: 4.2rem;
           color: ${({ theme }) => theme.colors.black};
         }
+      }
+      .proIcon {
+        display: block;
       }
 
       .active .mobile-nav-icon {
@@ -143,7 +149,7 @@ const Nav = () => {
         position: absolute;
         top: 0;
         left: 0;
-        background-color: #fff;
+        background-color: ${({ theme }) => theme.colors.white};
 
         display: flex;
         justify-content: center;
@@ -186,12 +192,16 @@ const Nav = () => {
       .profile-icon {
         font-size: 5rem;
         cursor: pointer;
+        display: inline-block;
       }
       .user-logout,
       .user-login {
         font-size: 2.2rem;
         padding: 0.8rem 1.4rem;
       }
+    }
+    .active {
+      color: ${({ theme }) => theme.colors.first};
     }
   `;
 
@@ -203,6 +213,7 @@ const Nav = () => {
             <NavLink
               to="/"
               className="navbar-link home-link "
+              activeclassname="active"
               onClick={() => setMenuIcon(false)}
             >
               Home
@@ -212,6 +223,7 @@ const Nav = () => {
             <NavLink
               to="/about"
               className="navbar-link "
+              activeclassname="active"
               onClick={() => setMenuIcon(false)}
             >
               About
@@ -221,6 +233,7 @@ const Nav = () => {
             <NavLink
               to="/contact"
               className="navbar-link "
+              activeclassname="active"
               onClick={() => setMenuIcon(false)}
             >
               Contact
@@ -230,6 +243,7 @@ const Nav = () => {
             <NavLink
               to="/products"
               className="navbar-link "
+              activeclassname="active"
               onClick={() => setMenuIcon(false)}
             >
               Products
@@ -239,14 +253,23 @@ const Nav = () => {
             <NavLink
               to="/blog"
               className="navbar-link "
+              activeclassname="active"
               onClick={() => setMenuIcon(false)}
             >
               Blog
             </NavLink>
           </li>
-          
+          {/* <li>
+            <NavLink
+              to="/login"
+              className="navbar-link "
+              onClick={() => setMenuIcon(false)}
+            >
+              Login
+            </NavLink>
+          </li> */}
           <li>
-            <DropdownMenu  />
+            <DropdownMenu activeclassname="active" />
           </li>
           {/* <li className="">
             <NavLink className="navbar-link">

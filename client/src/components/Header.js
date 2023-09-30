@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import Nav from "./Nav";
+import DropdownMobileMenu from "./DropdownMobileMenu";
 
 const Header = () => {
   return (
@@ -9,6 +10,9 @@ const Header = () => {
       <NavLink className="logo" to="/">
         <Logo src="/images/Klogo.png" alt="my logo image" />
       </NavLink>
+
+      <DropdownMobileMenu />
+
       <Nav />
     </MainHeader>
   );
@@ -30,7 +34,7 @@ const MainHeader = styled.header`
     margin-left: 3rem;
     align-items: center;
   }
-  @media (max-width: 390px) {
+  @media (max-width: ${({ theme }) => theme.media.mobile}) {
     // flex-direction: column; /* Stack items vertically */
     // justify-content: center; /* Center horizontally */
   }
@@ -41,7 +45,7 @@ const Logo = styled.img`
   height: 5rem;
   // display: flex;
   // margin: 1rem auto 0;
-  @media (max-width: 390px) {
+  @media (max-width: ${({ theme }) => theme.media.mobile}) {
     margin: 0; /* Remove top margin */
   }
 `;

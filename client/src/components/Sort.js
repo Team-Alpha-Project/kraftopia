@@ -76,7 +76,7 @@ const Wrapper = styled.div`
       font-size: 1.6rem;
     }
     .active {
-      background-color: ${({ theme }) => theme.colors.black};
+      background-color: ${({ theme }) => theme.colors.first};
       color: #fff;
     }
   }

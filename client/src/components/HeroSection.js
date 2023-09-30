@@ -41,13 +41,14 @@ const HeroSection = ({ myData }) => {
 };
 
 const Wrapper = styled.section`
-
+padding:9rem 0rem;
 
 .container{
   
-       height: 100%;
+    // height: 100%;
     display: flex;
     align-items: center;
+    // margin-block:3rem;
      
 }
 .grid{
@@ -62,7 +63,6 @@ img{
 .hero-section-data{
 
     display: flex;
-   
     flex-direction: column;
     gap: 1rem;
     align-items: center;
@@ -103,14 +103,14 @@ figure{
         width: 100%;
         height: auto;
     }
-    figure::after{
-        content:'';
-        right: 0;
-        top: -9%;
-        height:100% ;
-        width:50% ;
-        background-color:${({ theme }) => theme.colors.first};
-    }
+    // figure::after{
+    //     content:'';
+    //     right: 0;
+    //     top: -9%;
+    //     height:100% ;
+    //     width:50% ;
+    //     background-color:${({ theme }) => theme.colors.first};
+    // }
 }
 
 @media (max-width: ${({ theme }) => theme.media.mobile}){
@@ -121,18 +121,21 @@ figure{
       padding:7rem 0;
     }
 
-    figure::after{
-        content:'';
-        top:10%;
-        left: 0;
-        height:100% ;
-        width:50% ;
-        background-color:${({ theme }) => theme.colors.first};
-    }
+    // figure::after{
+    //     content:'';
+    //     top:10%;
+    //     left: 0;
+    //     height:100% ;
+    //     width:50% ;
+    //     background-color:${({ theme }) => theme.colors.first};
+    // }
 }
 @media (max-width: ${({ theme }) => theme.media.tab}){
     section{
       padding:7rem 0;
+    }
+    .grid{
+gap:0;
     }
 }
 `;

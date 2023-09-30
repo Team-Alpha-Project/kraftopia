@@ -181,13 +181,13 @@ const Wrapper = styled.div`
         cursor: pointer;
 
         &:hover {
-          color: ${({ theme }) => theme.colors.btn};
+          color: ${({ theme }) => theme.colors.first};
         }
       }
 
       .active {
         border-bottom: 1px solid #000;
-        color: ${({ theme }) => theme.colors.btn};
+        color: ${({ theme }) => theme.colors.first};
       }
     }
   }
@@ -254,6 +254,8 @@ const Wrapper = styled.div`
     // background-color: #ec7063;
     // color: #000;
   }
+
+ 
 `;
 
 export default FilterSection;

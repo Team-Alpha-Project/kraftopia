@@ -75,10 +75,12 @@ p, button {
 
 a {
   text-decoration: none;
+  color: ${({ theme }) => theme.colors.black};
 }
 
 li {
   list-style: none;
+  
 }
 
 
@@ -89,9 +91,7 @@ ${"" /* resuable code section  */}
   margin: 0 auto;
 }
 section{
-padding: 0 3rem 0;
-height: 100vh;
-margin-bottom: 20px; 
+padding-block: 4rem 3rem;
 
 }
 .grid {
