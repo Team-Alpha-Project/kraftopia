@@ -1,27 +1,30 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./Home";
-import About from "./About";
-import Products from "./Products";
-import Contact from "./Contact";
-import SingleProduct from "./SingleProduct";
-import SingleDistrict from "./SingleDistrict";
-import Blog from "./Blog";
-import Cart from "./Cart";
-// import Login from "./components/Login";
-// import Register from "./Register";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import Dashboard from "./pages/Dashboard";
-import Otp from "./pages/Otp";
-import Error from "./Error";
-import Profile from "./components/Profile";
-import Wishlist from "./components/Wishlist";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
 import "react-toastify/dist/ReactToastify.css";
 import { GlobalStyle } from "./GlobalStyle";
 import { ThemeProvider } from "styled-components";
+import Home from "./pages/Home";
+import Dashboard from "./pages/User/Dashboard";
+import Profile from "./components/Profile";
+import Orders from "./pages/User/Orders";
+import Wishlist from "./components/Wishlist";
+import AdminDashboard from "./pages/Admin/AdminDashboard";
+import CreateCategory from "./pages/Admin/CreateCategory";
+import CreateProduct from "./pages/Admin/CreateProduct";
+import Users from "./pages/Admin/Users";
+import Register from "./pages/Auth/Register";
+import ForgotPassword from "./pages/Auth/ForgotPassword";
+import About from "./pages/About";
+import Products from "./pages/Products";
+import Contact from "./pages/Contact";
+import Error from "./pages/Error";
+import Login from "./pages/Auth/Login";
+import PrivateRoute from "./components/Routes/Private";
+import AdminRoute from "./components/Routes/AdminRoute";
+import Header from "./components/Layout/Header";
+import Footer from "./components/Layout/Footer";
+import SingleProduct from "./pages/SingleProduct";
+import Blog from "./pages/Blog";
 
 const App = () => {
   const theme = {
@@ -89,24 +92,27 @@ const App = () => {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} /> */}
-
-          <Route path="/login" element={<Login />} />
+          <Route path="/dashboard" element={<PrivateRoute />}>
+            <Route path="user" element={<Dashboard />} />
+            <Route path="user/profile" element={<Profile />} />
+            <Route path="user/order" element={<Orders />} />
+            <Route path="user/wishlist" element={<Wishlist />} />
+          </Route>
+          <Route path="/dashboard" element={<AdminRoute />}>
+            <Route path="admin" element={<AdminDashboard />} />
+            <Route path="admin/create-category" element={<CreateCategory />} />
+            <Route path="admin/create-product" element={<CreateProduct />} />
+            <Route path="admin/users" element={<Users />} />
+          </Route>
           <Route path="/register" element={<Register />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/otp" element={<Otp />} />
-
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/about" element={<About />} />
+          <Route path="/blog" element={<Blog />} />
           <Route path="/products" element={<Products />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/wishlist" element={<Wishlist />} />
-          <Route path="/singleproduct/:id" element={<SingleProduct />} />
-          <Route path="/singledistrict" element={<SingleDistrict />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/cart" element={<Cart />} />
           <Route path="*" element={<Error />} />
+          <Route path="/singleproduct/:id" element={<SingleProduct />} />
           {/* <Route path="/district/:districtName" component={SingleDistrict} /> */}
         </Routes>
         <Footer />
